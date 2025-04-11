@@ -1,6 +1,9 @@
 {
   "build": {
-    "target": ["dmg"]
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
+    "devPath": "http://localhost:3000",
+    "distDir": "../build"
   },
   "package": {
     "productName": "YourAppName",
@@ -8,12 +11,23 @@
   },
   "tauri": {
     "bundle": {
-      "identifier": "com.yourcompany.yourapp",
+      "identifier": "com.utlra.argusapp",
       "icon": ["icons/icon.icns"],
-      "targets": ["dmg"]
-    }
+      "targets": ["dmg"],
+      "macOS": {
+        "category": "public.app-category.utilities"
+      }
+    },
+    "windows": [
+      {
+        "title": "YourAppName",
+        "width": 800,
+        "height": 600
+      }
+    ]
   }
 }
+
 
 
 // {
